@@ -26,7 +26,7 @@ const FilteredEvents = () => {
     return( 
     <>
       <ErrorAlert>
-      <p>No events found with this filter!!</p>
+      <p>No events found with such filter!!</p>
       </ErrorAlert>
       <div className="center">
         <Button link='/events'>Show all Events</Button>
