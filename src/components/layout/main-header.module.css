@@ -1,0 +1,99 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 10%;
+    height: 5rem;
+    background-color: #1B262C;
+  }
+  
+  .logo {
+    font-size: 2.5rem;
+    font-family: 'Fira', sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7FC7D9;
+  }
+  
+  .logo a {
+    text-decoration: none;
+    color: #7FC7D9;
+  }
+
+  .header a:hover,
+  .header a:active,
+  .header a.active {
+    color: white;
+  }
+  
+  .navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .navigation li {
+    margin-left: 3rem;
+  }
+  .navigation a {
+    text-decoration: none;
+    color: #7FC7D9;
+    font-size: 1.5rem;
+  }
+
+  .localClass:hover {
+    color: #DCF2F1;
+  }
+  
+
+  .localClass:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+  
+  .localClass::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+    background-color: #fcf3f6;
+  }
+
+  .localClass {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    text-decoration-color: #FFF8E3;
+    transition: all 0.5s;
+  }
+
+ 
+  
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 1.5rem;
+    }
+  
+    .navigation a {
+      font-size: 1rem;
+    }
+
+    .header {
+        align-items: center;
+        padding: 1rem 5%;
+    }
+
+    .navigation li {
+        margin-left: 1rem;
+    }
+  }

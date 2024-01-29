@@ -1,0 +1,19 @@
+.list {
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .list li {
+    margin: 1rem;
+    padding: 1rem;
+    width: 30rem;
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .list li {
+      width: 20rem;
+    }
+  }
