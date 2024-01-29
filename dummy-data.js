@@ -1,3 +1,4 @@
+
 const DUMMY_EVENTS = [
   {
     id: "e1",
