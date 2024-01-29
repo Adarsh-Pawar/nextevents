@@ -7,3 +7,19 @@
   margin-top: 8rem;
   text-align: center;
 }
+
+.content p {
+  margin: 0 auto;
+}
+
+@media (max-width:768px) {
+  .content {
+    font-size: 1rem;
+    margin-top: 5rem;
+  }
+
+  .content p {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+}
