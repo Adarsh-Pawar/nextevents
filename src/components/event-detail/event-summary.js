@@ -1,4 +1,5 @@
 import classes from './event-summary.module.css';
+import React from 'react'
 
 function EventSummary(props) {
   const { title } = props;

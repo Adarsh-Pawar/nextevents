@@ -1,3 +1,4 @@
+import React from 'react'
 import classes from './event-content.module.css';
 
 function EventContent(props) {

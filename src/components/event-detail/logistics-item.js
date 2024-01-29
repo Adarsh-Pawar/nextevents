@@ -1,4 +1,5 @@
 import classes from './logistics-item.module.css';
+import React from 'react'
 
 function LogisticsItem(props) {
   const { icon: Icon } = props;
