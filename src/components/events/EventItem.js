@@ -5,6 +5,8 @@ import DateIcon from "../icons/date-icon";
 import AddressIcon from "../icons/address-icon";
 import ArrowRightIcon from "../icons/arrow-right-icon";
 
+const assetPrefix = process.env.NODE_ENV === 'production' ? '/nextevents' : '';
+
 const EventItem = (props) => {
   const { title, image, date, location, id } = props;
   const readableDate = new Date(date).toLocaleDateString("en-US", {
@@ -13,11 +15,13 @@ const EventItem = (props) => {
     year: "numeric",
   });
   const formattedAddress = location.replace(", ", "\n");
+
   const exploreLink = `/events/${id}`;
+  console.log(assetPrefix+image)
   return (
     <li className={classes.item}>
       <div className={classes.image}>
-        <img src={image} alt={title} />
+        <img src={assetPrefix+image} alt={title} />
       </div>
 
       <div className={classes.content}>

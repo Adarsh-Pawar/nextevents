@@ -1,27 +1,20 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import { getFilteredEvents } from '../../../dummy-data'
+import { getFilteredEvents, getAllEvents } from '@/helpers/api-utils'
 import EventList from '@/components/events/EventList'
 import ResultTitle from '@/components/events/ResultTitle'
 import Button from '@/components/ui/Button'
 import ErrorAlert from '@/components/ui/ErrorAlert'
 
-const FilteredEvents = () => {
+const FilteredEvents = (props) => {
   const router = useRouter()
   if (!router.query.slug) {
     return <h1>Loading...</h1>
   } 
 
-  const year = router.query.slug[0]
-  const month = router.query.slug[1]
 
-  const numYear = +year
-  const numMonth = +month
 
-  const filteredEvents = getFilteredEvents({
-    year:numYear,
-    month:numMonth
-  });
+  const {filteredEvents,dateFilter} = props
   if (!filteredEvents || filteredEvents.length === 0) {
     return( 
     <>
@@ -34,7 +27,7 @@ const FilteredEvents = () => {
     </>)
   }
 
-  const date = new Date(numYear,numMonth-1)
+  const date = new Date(dateFilter.numYear,dateFilter.numMonth-1)
 
   return (
     <div>
@@ -45,3 +38,19 @@ const FilteredEvents = () => {
 }
 
 export default FilteredEvents
+
+
+export async function getServerSideProps(context) {
+  const {params} = context
+  const [year,month] = params.slug
+  console.log(year,month)
+  const numYear = +year;
+  const numMonth = +month;
+
+  const dateFilter = {numYear,numMonth}
+  const events = await getFilteredEvents(dateFilter)
+
+  return {
+    props: { filteredEvents:events, dateFilter },
+  };
+}

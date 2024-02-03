@@ -1,12 +1,13 @@
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import { getFeaturedEvents } from '../../dummy-data'
-import EventList from '@/components/events/EventList'
+import Head from "next/head";
+import { Inter } from "next/font/google";
+import { getFeaturedEvents } from "@/helpers/api-utils"; 
+import EventList from "@/components/events/EventList";
 
-const inter = Inter({ subsets: ['latin'] })
-const assetPrefix = process.env.NODE_ENV === 'production' ? '/nextevents' : '';
-export default function Home() {
-  const featuredEvents = getFeaturedEvents();
+const inter = Inter({ subsets: ["latin"] });
+const assetPrefix = process.env.NODE_ENV === "production" ? "/nextevents" : "";
+export default function Home(props) {
+  const { events } = props;
+  const featuredEvents = events.filter((event) => event.isFeatured);
 
   return (
     <>
@@ -16,12 +17,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={`${assetPrefix}/favicon.ico`} />
       </Head>
-      <main className=''>
-        <div className=''>
+      <main className="">
+        <div className="">
           <h1>Featured Events</h1>
-          <EventList items={featuredEvents}/>
+          <EventList items={featuredEvents} />
         </div>
       </main>
     </>
-  )
+  );
+}
+
+export async function getStaticProps() {
+  const events = await getFeaturedEvents()
+  return {
+    props: { events },
+    revalidate:600
+  };
 }
