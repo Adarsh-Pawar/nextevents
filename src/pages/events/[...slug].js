@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import { getFilteredEvents, getAllEvents } from '@/helpers/api-utils'
+import { getFilteredEvents } from '@/helpers/api-utils'
 import EventList from '@/components/events/EventList'
 import ResultTitle from '@/components/events/ResultTitle'
 import Button from '@/components/ui/Button'
