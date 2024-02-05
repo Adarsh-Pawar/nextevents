@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      {
+        "source": "/next-events",
+        "destination": "https://next-events.pawaradarsh.me",
+        "permanent": true
+      }
+    ]
+  }
