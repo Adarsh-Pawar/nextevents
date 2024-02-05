@@ -43,7 +43,6 @@ export default FilteredEvents
 export async function getServerSideProps(context) {
   const {params} = context
   const [year,month] = params.slug
-  console.log(year,month)
   const numYear = +year;
   const numMonth = +month;
 
