@@ -4,6 +4,7 @@ import Button from "../ui/Button";
 import DateIcon from "../icons/date-icon";
 import AddressIcon from "../icons/address-icon";
 import ArrowRightIcon from "../icons/arrow-right-icon";
+import Image from "next/image"
 
 // const assetPrefix = process.env.NODE_ENV === 'production' ? '/nextevents' : '';
 
@@ -20,7 +21,8 @@ const EventItem = (props) => {
   return (
     <li className={classes.item}>
       <div className={classes.image}>
-        <img src={image} alt={title} />
+        {/* <img src={image} alt={title} /> */}
+        <Image src={image} alt={title} width={480} height={240}/>
       </div>
 
       <div className={classes.content}>
